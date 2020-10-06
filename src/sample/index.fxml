@@ -7,8 +7,8 @@
 <?import javafx.scene.layout.*?>
 
 <GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.Controller" hgap="10" vgap="10" alignment="CENTER" >
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="sample.ControllerIndex" hgap="10" vgap="10" alignment="CENTER" >
     <HBox GridPane.rowIndex="0" GridPane.columnSpan="2" spacing="15" alignment="CENTER_RIGHT">
         <Label GridPane.columnIndex="0" text="User Name"/>
         <TextField GridPane.columnIndex="1" fx:id="loginEmail"/>
@@ -18,9 +18,9 @@
         <PasswordField GridPane.columnIndex="1" fx:id="loginPassword"/>
     </HBox>
     <HBox GridPane.rowIndex="2" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
-        <Hyperlink text="New user? Click here." fx:id="newUserClick" onAction="#onAction"/>
+        <Hyperlink text="New user? Click here." fx:id="newUserClick" onAction="#newUser"/>
     </HBox>
     <HBox GridPane.rowIndex="3" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
-        <Button fx:id="loginButton" text="Login" onAction="#toUserDashBoard"/>
+        <Button fx:id="loginButton" text="Login" onAction="#userLoginIn"/>
     </HBox>
 </GridPane>
