@@ -3,8 +3,22 @@
 
 
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextArea?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.ControllerIndex">
+            fx:controller="sample.ControllerUserDashboard"
+            fx:id="BorderPaneUserDashboard">
+    <left>
+        <ListView fx:id="carsListView">
 
+        </ListView>
+    </left>
+    <center>
+        <VBox>
+            <TextArea fx:id="carDetails" prefHeight="200"/>
+            <TextArea fx:id="carLogs" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
 </BorderPane>

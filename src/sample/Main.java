@@ -11,8 +11,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
+
+    public static Stage scene;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        scene = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
         primaryStage.setTitle("Garage System - Group 2");
         primaryStage.setScene(new Scene(root, 300, 275));

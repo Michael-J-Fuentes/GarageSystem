@@ -85,9 +85,6 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return
-                "VIN= " + VIN + '\n' +
-                "make= " + make + '\n' +
-                "model= " + model;
+        return this.make + ", " + this.model;
     }
 }

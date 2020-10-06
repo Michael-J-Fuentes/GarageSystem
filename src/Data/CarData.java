@@ -13,6 +13,10 @@ public class CarData {
     private static HashMap<String, ObservableList<Vehicle>> allCars;
     private ObservableList<Vehicle> cars;
 
+    // temp solution for current user
+    public static String currentUser;
+
+
     /** get location reference to principle list */
     public static CarData getInstance() {
         return instance;

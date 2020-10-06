@@ -23,4 +23,6 @@
     <HBox GridPane.rowIndex="3" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
         <Button fx:id="loginButton" text="Login" onAction="#userLoginIn"/>
     </HBox>
+    <Label fx:id="invalidUser" GridPane.rowIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER"
+           style="-fx-text-fill: red"/>
 </GridPane>

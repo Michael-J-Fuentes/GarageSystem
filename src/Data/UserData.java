@@ -28,6 +28,29 @@ public class UserData {
         return users.get("Customer");
     }
 
+    public boolean isUser(String userName) {
+       return (isUserCustomer(userName) || users.get("Mechanic").containsKey(userName));
+    }
+
+    public boolean isUser(String userName, String password) {
+        if (isUser(userName)) {
+            // check if user is in customer map
+            if (isUserCustomer(userName)) {
+                // check if password matches
+                Customer temp = (Customer) users.get("Customer").get(userName);
+                return (temp.getPassword().equals(password));
+            } else {
+
+            }
+        }
+        // username was not found
+        return false;
+    }
+
+    public boolean isUserCustomer(String userName) {
+        return users.get("Customer").containsKey(userName);
+    }
+
     // load data from file
     // TODO: 10/6/2020 Error reading data into file, creates null pointer exception
     public void loadData() {
