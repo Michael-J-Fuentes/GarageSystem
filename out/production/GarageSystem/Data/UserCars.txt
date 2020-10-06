@@ -1,2 +1,0 @@
-mike@gmail.com;VinOne;Toyota;4runner
-mike@gmail.com;VinTwo;Tesla;Model 3
