@@ -20,9 +20,16 @@ public class UserData {
 
     private UserData() {
         users = new HashMap<>();
+        users.put("Customer", new HashMap<>());
+        users.put("Mechanic", new HashMap<>());
+    }
+
+    public HashMap<String, User> getCustomers() {
+        return users.get("Customer");
     }
 
     // load data from file
+    // TODO: 10/6/2020 Error reading data into file, creates null pointer exception
     public void loadData() {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
             String line = bufferedReader.readLine();
@@ -38,7 +45,6 @@ public class UserData {
                 }
                 // check if user exit
                 if (!users.get(userType).containsKey(tempUser.getEmail())) {
-                    // user is not in current array
                     users.get(userType).put(tempUser.getEmail(), tempUser);
                 }
                 line = bufferedReader.readLine();

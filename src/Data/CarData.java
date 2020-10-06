@@ -53,7 +53,7 @@ public class CarData {
                     tempArray.add(temp);
                     allCars.put(split[0], tempArray);
                 }
-                line = bufferedReader.readLine(); 
+                line = bufferedReader.readLine();
             }
         } catch (IOException e ) {
             System.out.println("Error loading cars into array. Called from CarData-Load cars");

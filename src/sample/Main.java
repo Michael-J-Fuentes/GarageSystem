@@ -27,7 +27,7 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         try {
-            //CarData.getInstance().loadCars();
+            CarData.getInstance().loadCars();
             UserData.getInstance().loadData();
         } catch (Exception e) {
             System.out.println("Error loading data into array. Called from main");
