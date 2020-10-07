@@ -23,6 +23,15 @@ public class Note {
         this.garage = garage;
     }
 
+    // for testing
+    public Note(String subjectLine, LocalDate date, String description) {
+        this.subjectLine = subjectLine;
+        this.date = date;
+        this.description = description;
+        this.mechanic = null;
+        this.garage = null;
+    }
+
     public String getSubjectLine() {
         return subjectLine;
     }
@@ -34,6 +43,8 @@ public class Note {
     public LocalDate getDate() {
         return date;
     }
+
+    // for testing UI
 
     public void setDate(LocalDate date) {
         this.date = date;
@@ -63,12 +74,12 @@ public class Note {
         this.garage = garage;
     }
 
+    public String saveNote() {
+        return subjectLine + ";" + date.toString() + ";" + description;
+
+    }
+
     public String toString() {
-        return (
-                "Subject: " + this.subjectLine + "\n" +
-                        "Date: " + this.date.toString() + "\n" +
-                        "Shop: " + this.mechanic + " at " + this.garage.getName() + "\n" +
-                        "Description: " + this.description
-                );
+        return this.subjectLine;
     }
 }

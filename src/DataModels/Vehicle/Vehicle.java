@@ -54,6 +54,19 @@ public class Vehicle {
         return Collections.unmodifiableList(this.maintenanceRecords);
     }
 
+    public String printMaintenanceRecords() {
+        StringBuilder sb = new StringBuilder();
+        Iterator<Note> iterator = maintenanceRecords.listIterator();
+        while (iterator.hasNext()) {
+            Note current = iterator.next();
+            sb.append("Subject Line: " + current.getSubjectLine() + "\n\n");
+            sb.append("Date: " + current.getDate().toString() + "\n\n");
+            sb.append("Description: " + current.getDescription() + "\n\n\n\n");
+        }
+
+        return sb.toString();
+    }
+
     public boolean addNote(Note note) {
         return this.maintenanceRecords.add(note);
     }
