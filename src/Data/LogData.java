@@ -34,13 +34,9 @@ public class LogData {
                     // add note to their file
                     User abstractUser = UserData.getInstance().getCustomers().get(userName);
                     Customer tempCustomer = (Customer) abstractUser;
-                    // DONE: 10/6/2020 below is returning null, check if cars were not added for customer
-                    System.out.println(tempCustomer);
                     if (tempCustomer.getVehicle(split[1]) != null ){
                         Vehicle tempVeh = tempCustomer.getVehicle(split[1]);
                         tempVeh.addNote(new Note(split[2], LocalDate.parse(split[3]), split[4]));
-//                        tempVeh.addNote(new Note("Test", LocalDate.parse("2007-12-03"),
-//                                "Testing notes one"));
                     }
                 }
                 line = reader.readLine();

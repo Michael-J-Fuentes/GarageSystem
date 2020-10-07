@@ -27,18 +27,6 @@ public class CarData {
     private CarData() {
 
     }
-//    /**gets car list for javafx, every car included regards of owner*/
-//    public ObservableList<Vehicle> getCars() {
-//        return this.cars;
-//    }
-    /** get car list for specific Owner*/
-//    public ObservableList<Vehicle> getCars(String owner) {
-//        return allCars.get(owner);
-//    }
-//    /** add car main list*/
-//    public boolean addCar(String userName, Vehicle car) {
-//        return allCars.get(userName).add(car);
-//    }
 
     /** builds item list from file at start of program */
     public void loadCars() {
@@ -67,20 +55,8 @@ public class CarData {
      * Will write items grouped by owner*/
     public void saveCars() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            // old method would read from current class data structures
-//            for (String key : allCars.keySet()) {
-//                ObservableList<Vehicle> temp = allCars.get(key);
-//                // iterate over each car the person owns,
-//                for (Vehicle tempCar : temp) {
-//                    writer.write(key + ";" + tempCar.getVIN() + ";" + tempCar.getMake() + ";" + tempCar.getModel());
-//                    writer.newLine();
-//                }
-//            }
-            //  new method read from main user data structures
-            // process heavy with large data sets but works well for testing
-            // iterate over all customers
+
             for (String userType : UserData.getInstance().getUsers().keySet()) {
-                System.out.println(userType);
                 // iterate over each customer type
                 for (String userName : UserData.getInstance().getUsers().get(userType).keySet() ) {
                     // iterate over customer cars
