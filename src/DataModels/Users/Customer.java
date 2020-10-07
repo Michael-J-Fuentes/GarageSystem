@@ -3,12 +3,11 @@ package DataModels.Users;
 import DataModels.Appointment.Appointment;
 import DataModels.Notes.Note;
 import DataModels.Vehicle.Vehicle;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class Customer extends User implements ViewAppointments{
     private HashMap<String, Vehicle> customerCars;
@@ -27,6 +26,11 @@ public class Customer extends User implements ViewAppointments{
 
     public HashMap<String, Vehicle> getCustomerCars() {
         return customerCars;
+    }
+
+    // used for GUI
+    public List<Vehicle> getCustomerCarsListView() {
+        return new ArrayList<>(customerCars.values());
     }
 
     public void setCustomerCars(HashMap<String, Vehicle> customerCars) {

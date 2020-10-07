@@ -1,6 +1,7 @@
 package sample;
 
 import Data.CarData;
+import Data.LogData;
 import Data.UserData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -31,8 +32,9 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         try {
-            CarData.getInstance().loadCars();
             UserData.getInstance().loadData();
+            CarData.getInstance().loadCars();
+            LogData.getInstance().load();
         } catch (Exception e) {
             System.out.println("Error loading data into array. Called from main");
             e.printStackTrace();
@@ -42,8 +44,8 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         try {
-            CarData.getInstance().saveCars();
             UserData.getInstance().saveData();
+            CarData.getInstance().saveCars();
         } catch (Exception e) {
             System.out.println("Error saving data to file, Called from main");
             e.printStackTrace();

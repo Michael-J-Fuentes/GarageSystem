@@ -24,8 +24,17 @@ public class UserData {
         users.put("Mechanic", new HashMap<>());
     }
 
+    public HashMap<String, HashMap<String, User>> getUsers() {
+        return users;
+    }
+
     public HashMap<String, User> getCustomers() {
         return users.get("Customer");
+    }
+
+
+    public Customer getCustomer(String userName) {
+        return (Customer) users.get("Customer").get(userName);
     }
 
     public boolean isUser(String userName) {
@@ -63,12 +72,12 @@ public class UserData {
                 if (userType.toLowerCase().equals("customer")) {
                     tempUser = new Customer(split[0], split[1], split[2], split[3],split[4]);
                 } else { //(userType.toLowerCase().equals("mechanic"))
-                    // something for mech
                     tempUser = new Mechanic(split[0], split[1], split[2], split[3],split[4]);
                 }
-                // check if user exit
+                // check if user exit in current working memory
                 if (!users.get(userType).containsKey(tempUser.getEmail())) {
                     users.get(userType).put(tempUser.getEmail(), tempUser);
+                    System.out.println("User " + tempUser.getEmail() + " was added");
                 }
                 line = bufferedReader.readLine();
             }
