@@ -46,6 +46,7 @@ public class Main extends Application {
         try {
             UserData.getInstance().saveData();
             CarData.getInstance().saveCars();
+            LogData.getInstance().saveData();
         } catch (Exception e) {
             System.out.println("Error saving data to file, Called from main");
             e.printStackTrace();

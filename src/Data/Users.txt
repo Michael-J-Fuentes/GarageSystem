@@ -1,1 +1,2 @@
 mike;fuentes;mike@gmail.com;9876;123;Customer
+test;one;testOne@gmail.com;testone;test;Customer

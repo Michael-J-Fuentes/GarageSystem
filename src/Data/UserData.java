@@ -59,9 +59,55 @@ public class UserData {
     public boolean isUserCustomer(String userName) {
         return users.get("Customer").containsKey(userName);
     }
+    // save new customer to working memory
+    public boolean addNewUser(User user, String type) {
+        if (user == null) {
+            return false;
+        }
+        switch (type.trim().toLowerCase()) {
+            case "customer":
+                Customer temp = (Customer) user;
+                users.get(type).put(temp.getEmail(), temp);
+                return users.get(type).containsKey(temp.getEmail());
+            case "mechanic":
+                Mechanic tempMech = (Mechanic) user;
+                users.get(type).put(tempMech.getEmail(), tempMech);
+                return users.get(type).containsKey(tempMech.getEmail());
+            case "admin":
+                // to be implemented
+                return false;
+        }
+        return false;
+    }
+
+    public boolean addNewUser(String firstName, String lastName, String email, String phone, String password
+                                , String type) {
+        // checking if all inputs are valid
+        if (isValid(firstName) && isValid(lastName) && isValid(email) && isValid(phone) && isValid(password)) {
+            switch (type.trim().toLowerCase()) {
+                case "customer":
+                    Customer temp = new Customer(firstName, lastName, email, phone, password);
+                    users.get(type).put(temp.getEmail(), temp);
+                    return users.get(type).containsKey(temp.getEmail());
+                case "mechanic":
+                    Mechanic tempMech = new Mechanic(firstName, lastName, email, phone, password);
+                    users.get(type).put(tempMech.getEmail(), tempMech);
+                    return users.get(type).containsKey(tempMech.getEmail());
+                case "admin":
+                    // to be implemented
+                    return false;
+            }
+
+        }
+        return false;
+    }
+
+    private boolean isValid(String string) {
+        return (string != null);
+    }
 
     // load data from file
-    // TODO: 10/6/2020 Error reading data into file, creates null pointer exception
+    // Done: 10/6/2020 Error reading data into file, creates null pointer exception
     public void loadData() {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
             String line = bufferedReader.readLine();
