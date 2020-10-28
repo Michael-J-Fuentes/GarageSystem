@@ -88,10 +88,12 @@ public class UserData {
                 case "customer":
                     Customer temp = new Customer(firstName, lastName, email, phone, password);
                     users.get(type).put(temp.getEmail(), temp);
+                    // check if added
                     return users.get(type).containsKey(temp.getEmail());
                 case "mechanic":
                     Mechanic tempMech = new Mechanic(firstName, lastName, email, phone, password);
                     users.get(type).put(tempMech.getEmail(), tempMech);
+                    // check if added
                     return users.get(type).containsKey(tempMech.getEmail());
                 case "admin":
                     // to be implemented

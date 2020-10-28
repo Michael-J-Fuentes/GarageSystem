@@ -1,8 +1,7 @@
 package DataModels.Users;
 
 import DataModels.Appointment.Appointment;
-import DataModels.Garage.Garage;
-import DataModels.Notes.Note;
+import DataModels.Vehicle.Note;
 import DataModels.Vehicle.Vehicle;
 
 import java.util.Collections;

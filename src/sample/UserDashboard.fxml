@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.ControllerUserDashboard"
@@ -21,4 +22,7 @@
             <TextArea fx:id="carLogs" VBox.vgrow="ALWAYS"/>
         </VBox>
     </center>
+    <bottom>
+        <Button text="Add Car" fx:id="newCarButton" onAction="#newCar"/>
+    </bottom>
 </BorderPane>

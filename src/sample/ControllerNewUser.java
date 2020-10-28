@@ -29,5 +29,6 @@ public class ControllerNewUser {
                 email.getText(), phone.getText(), password.getText(), userType.getValue().toString()));
         // take them to dashboard
 
+
     }
 }

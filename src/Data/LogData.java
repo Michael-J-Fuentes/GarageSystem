@@ -1,14 +1,12 @@
 package Data;
 
-import DataModels.Notes.Note;
+import DataModels.Vehicle.Note;
 import DataModels.Users.Customer;
 import DataModels.Users.User;
 import DataModels.Vehicle.Vehicle;
-import javafx.collections.ObservableList;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Iterator;
 
 public class LogData {

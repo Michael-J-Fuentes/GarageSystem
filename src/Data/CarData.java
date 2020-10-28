@@ -1,25 +1,19 @@
 package Data;
 
 import DataModels.Users.Customer;
-import DataModels.Users.User;
 import DataModels.Vehicle.Vehicle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
+
 
 public class CarData {
     private static CarData instance = new CarData();
     private static String fileName = "src/Data/UserCars.txt";
-//    private static HashMap<String, ObservableList<Vehicle>> allCars;
 
     // temp solution for current user
     public static String currentUser;
 
 
-    /** get location reference to principle list */
+    /** Returns current customers car list */
     public static CarData getInstance() {
         return instance;
     }
@@ -28,18 +22,25 @@ public class CarData {
 
     }
 
-    /** builds item list from file at start of program */
+    /** loads customers car list at start of program */
     public void loadCars() {
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+            // each line contains car owner and car details
             String line = bufferedReader.readLine();
             while (line != null) {
+                // split into usable chucks of information
                 String[] split = line.trim().split(";");
-//                // create temp car, could be used in both possible options
+//                // create an instance of car
                 Vehicle temp = new Vehicle(split[1], split[2], split[3]);
                 // create temp customer from user data, used for ease of access;
+                // customer are loaded into the system first. Customer in UserCars should already exist
+                // in system
                 Customer customer = UserData.getInstance().getCustomer(split[0]);
-                // check if customer is not null,
+                // check if customer is not null
+                // if null the user does not exist in system
+                // their car is skipped
                 if (customer != null) {
+                    // add
                     customer.addVehicle(temp);
                 }
                 // if user is not in array, line is skipped

@@ -24,6 +24,10 @@ public class Appointment {
         this(vehicle, LocalDateTime.now(),mechanic, garage);
     }
 
+    public Appointment(Vehicle vehicle, LocalDateTime date, Garage garage) {
+        this(vehicle, date, null, garage);
+    }
+
     public Vehicle getVehicle() {
         return vehicle;
     }

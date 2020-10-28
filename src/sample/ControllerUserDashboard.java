@@ -8,12 +8,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class ControllerUserDashboard {
     @FXML
@@ -24,13 +26,49 @@ public class ControllerUserDashboard {
     private TextArea carDetails;
     @FXML
     private TextArea carLogs;
+    @FXML
+    private GridPane newUserWindow;
+    @FXML
+    private Button newCarButton;
+
+    private List<Vehicle> vehicles;
 
 
 
     @FXML
     public void initialize() {
 //        carsListView.setItems(CarData.getInstance().getCars(CarData.currentUser));
-        List<Vehicle> vehicles = UserData.getInstance().getCustomer(CarData.currentUser).getCustomerCarsListView();
+        reloadCars();
+
+    }
+
+    @FXML
+    public void newCar() {
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(BorderPaneUserDashboard.getScene().getWindow());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("newCar.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.setTitle("Add Car");
+        } catch (IOException e) {
+            System.out.println("Error loading new car fxml. Called from controllerNewCar method new car");
+            e.printStackTrace();
+        }
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ControllerNewCar newCar = fxmlLoader.getController();
+            newCar.newCar();
+            reloadCars();
+        }
+    }
+
+    public void reloadCars() {
+        vehicles = UserData.getInstance().getCustomer(CarData.currentUser).getCustomerCarsListView();
         carsListView.setItems(FXCollections.observableList(vehicles));
         carsListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
@@ -42,8 +80,8 @@ public class ControllerUserDashboard {
                     StringBuilder builder = new StringBuilder();
                     builder.append("Make: " + temp.getMake() + "\n");
                     builder.append("Model: " + temp.getModel() + "\n");
-                    builder.append("VIN: " + temp.getVIN() + "\n");
-                    builder.append("Year: " );
+                    builder.append("VIN: " + temp.getVIN());
+//                    builder.append("Year: " );
                     carDetails.setText(builder.toString());
                     carLogs.setText(temp.printMaintenanceRecords());
                 }

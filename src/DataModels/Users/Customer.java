@@ -1,12 +1,8 @@
 package DataModels.Users;
 
 import DataModels.Appointment.Appointment;
-import DataModels.Notes.Note;
 import DataModels.Vehicle.Vehicle;
-import javafx.beans.Observable;
-import javafx.collections.ObservableList;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class Customer extends User implements ViewAppointments{

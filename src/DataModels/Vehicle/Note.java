@@ -1,4 +1,4 @@
-package DataModels.Notes;
+package DataModels.Vehicle;
 
 import DataModels.Garage.Garage;
 import DataModels.Users.Mechanic;

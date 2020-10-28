@@ -66,8 +66,6 @@ public class ControllerIndex {
                 System.out.println("Something happened in ControllerIndex userLogIn");
                 e.printStackTrace();
             }
-    }
-//        String msg = bool ? "Yes it's correct" : "Invalid";
-//        System.out.println(msg);
+        }
     }
 }
