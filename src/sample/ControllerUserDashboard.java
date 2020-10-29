@@ -14,6 +14,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +33,7 @@ public class ControllerUserDashboard {
     @FXML
     private Button newCarButton;
 
-    private List<Vehicle> vehicles;
+    private ObservableList<Vehicle> vehicles;
 
 
 
@@ -63,12 +65,13 @@ public class ControllerUserDashboard {
         if (result.get() == ButtonType.OK) {
             ControllerNewCar newCar = fxmlLoader.getController();
             newCar.newCar();
-            reloadCars();
         }
+        reloadCars();
     }
 
     public void reloadCars() {
-        vehicles = UserData.getInstance().getCustomer(CarData.currentUser).getCustomerCarsListView();
+        vehicles = FXCollections.observableList(
+                UserData.getInstance().getCustomer(CarData.currentUser).getCustomerCarsListView());
         carsListView.setItems(FXCollections.observableList(vehicles));
         carsListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
