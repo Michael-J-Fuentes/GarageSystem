@@ -29,7 +29,7 @@ public class MainTest {
         Address address = new Address("123", "Main Street", "Fort Worth",
                 "Texas", 76140);
         // create a garage
-        Garage shopOne = new Garage("Shop One", address );
+        Garage shopOne = new Garage("Shop One", "address" );
         shops.add(shopOne);
         // create a mechanic
         Mechanic mrDIY = new Mechanic("John", "fix", "john@shop.com", "98765",
@@ -67,8 +67,7 @@ public class MainTest {
         Customer c2 = new Customer("customerTwo", "Two", "two@gmail.com", "3564",
                 "pass");
         c2.addVehicle(new Vehicle("VinTwo", "Tesla", "Model 3"));
-        Garage shopTwo = new Garage("Bob garage", new Address("54", "west", "Dallas",
-                "Texas", 34532));
+        Garage shopTwo = new Garage("Bob garage", "Address");
         Mechanic mechanicTwo = new Mechanic("Mike", "Fuentes", "mike@shopTwo.com", "64341",
                 "mikepass");
         // booking a appointment

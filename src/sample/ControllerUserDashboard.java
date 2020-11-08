@@ -32,6 +32,9 @@ public class ControllerUserDashboard {
     private GridPane newUserWindow;
     @FXML
     private Button newCarButton;
+    @FXML
+    private Button bookAppointmentButton;
+
 
     private ObservableList<Vehicle> vehicles;
 
@@ -92,5 +95,10 @@ public class ControllerUserDashboard {
         });
 
         carsListView.getSelectionModel().selectFirst();
+    }
+
+    @FXML
+    public void bookAppointment() {
+
     }
 }

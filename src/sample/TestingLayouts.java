@@ -11,7 +11,7 @@ public class TestingLayouts extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("newCar.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("NewAppointment.fxml"));
         stage.setTitle("Testing Layouts");
         stage.setScene(new Scene(root, 500,400));
         stage.show();

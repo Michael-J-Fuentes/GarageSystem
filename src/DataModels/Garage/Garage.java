@@ -11,11 +11,11 @@ public class Garage implements ViewAppointments {
     private String name;
     private HashMap<Integer, Mechanic> mechanics;
     //private HashMap<Integer, Admin> admins;
-    private Address address;
+    private String address;
     // replace with a binary tree map, with a custom comparable value based on time
     private LinkedList<Appointment> appointments;
 
-    public Garage(String name, HashMap<Integer, Mechanic> mechanics,  Address address, LinkedList<Appointment> appointments) {
+    public Garage(String name, HashMap<Integer, Mechanic> mechanics,  String address, LinkedList<Appointment> appointments) {
         this.name = name;
         this.mechanics = mechanics;
         this.address = address;
@@ -23,7 +23,7 @@ public class Garage implements ViewAppointments {
     }
 
     // default constructor for a new shop that does not contain mechs
-    public Garage(String name, Address address) {
+    public Garage(String name, String address) {
         this(name, new HashMap<>(), address, new LinkedList<>());
     }
 
@@ -43,11 +43,11 @@ public class Garage implements ViewAppointments {
         this.mechanics = mechanics;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -93,6 +93,11 @@ public class Garage implements ViewAppointments {
             }
         }
         return mechanicAppointments;
+    }
+
+    // used to save data to file
+    public String saveData() {
+        return this.name + ";" + this.address;
     }
 
     @Override
